@@ -1,0 +1,25 @@
+.navbar {
+  font-family: "Inter", sans-serif;
+  background-color: palevioletred;
+  display: flex;
+  justify-content: space-between;
+}
+.navbar .left-nav {
+  background-color: peru;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.navbar .left-nav .navlist {
+  background-color: palegreen;
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+.navbar .right-nav {
+  background-color: powderblue;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}

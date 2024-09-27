@@ -1,0 +1,197 @@
+@import 'config';
+
+/*Header Styles*/
+header{
+  background-color: $light-col;
+  min-width: 100wh;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  .navbar{
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 60px;
+    .left-nav{
+      display: flex;
+      align-items: center;
+      gap: 30px;
+      .logo-link{
+        text-decoration: none;
+        .logo{
+          color: $primary-col;
+          font-size: 2rem;
+          font-family: $crimson;
+          font-weight: 200;
+          margin: 0;
+        }
+      }
+      .navmenu-container{
+        display: flex;
+        align-items: center;
+        .navmenu{
+          display: flex;
+          list-style: none;
+          padding: 0;
+          .navitem{
+            padding: 0 20px;
+            font-size: 1rem;
+            color: $dark-col;
+            .link{
+              text-decoration: none;
+              color: $dark-col;
+              font-weight: 400;
+
+              &:hover{
+                border-bottom: 2px solid $primary-col;
+                color: $primary-col;
+                padding-bottom: 3px;
+                transition: 0.2s ease;
+              }
+            }
+            .active {
+              text-decoration: none;
+              color: $primary-col;
+              border-bottom: 2px solid $primary-col;
+              padding-bottom: 3px;
+              transition: 0.2s ease;
+            }
+            .inactive {
+              text-decoration: none;
+              color: $dark-col;
+            }
+          }
+        }
+      }
+    }
+
+    .right-nav{
+      display: flex;
+      align-items: center;
+      gap: 20px;
+
+      .profile-control{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $dark-col;
+      }
+      
+      .cart{
+        text-decoration: none;
+         &:hover{
+          cursor: pointer;
+          position: relative;
+
+          .itemAdded{
+            display: block;
+          }
+        }
+      }
+
+      .cart-control{
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        color: $dark-col;
+        div{
+          display: flex;
+          flex-direction: column;
+          align-content: center;
+          text-align: center;
+          .itemAdded{
+            position: absolute;
+            left: 2px;
+            background-color: $primary-col;
+            border-radius: 10px;
+            width: 15px;
+            color: $light-col;
+            font-size: 0.8rem;
+            bottom: 15px;
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/*Search Input Styles*/
+#search{
+  padding: 10px 20px;
+  min-width: 350px;
+  max-width: 100%;
+  border: 1px solid $dark-col;
+  border-radius: 5px;
+  font-size: 1rem;
+  background-color: $light-col;
+
+  &::-webkit-search-cancel-button{
+    display: none;
+  }
+}
+
+/*===== Header Ends =====*/
+
+/* Footer Styles*/
+.footer{
+  background-color: $dark-col;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: #fff;
+  padding: 40px 60px;
+
+  .logo{
+    font-family: $crimson;
+    font-size: 2rem;
+    font-weight: 200;
+    color: $light-col;
+    margin: 0;
+  }
+
+  .footer-nav{
+    h3{
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .footer-nav-list{
+      list-style: none;
+      padding: 0;
+      .footer-list-item{
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .social-connect{
+    h3{
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .social-connect-list{
+      list-style: none;
+      padding: 0;
+      .social-connect-item{
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  .contact{
+    h3{
+      margin: 0;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+    .contact-list{
+      list-style: none;
+      padding: 0;
+      .contact-options{
+        font-size: 0.8rem;
+      }
+    }
+  }
+}
