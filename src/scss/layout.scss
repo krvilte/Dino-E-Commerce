@@ -77,13 +77,11 @@ header{
       
       .cart{
         text-decoration: none;
-         &:hover{
+        position: relative;
+        color: $dark-col;
+        &:hover{
           cursor: pointer;
-          position: relative;
-
-          .itemAdded{
-            display: block;
-          }
+          color: $primary-col;
         }
       }
 
@@ -91,7 +89,6 @@ header{
         display: flex;
         align-items: center;
         gap: 5px;
-        color: $dark-col;
         div{
           display: flex;
           flex-direction: column;
@@ -106,7 +103,6 @@ header{
             color: $light-col;
             font-size: 0.8rem;
             bottom: 15px;
-            display: none;
           }
         }
       }

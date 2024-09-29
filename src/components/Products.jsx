@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import ProductImage from '../assets/Product.jpg';
+import useProductData from '../data/useProductData';
+import { useDispatch } from 'react-redux';
+import { addItem } from '../slices/cart/cartSlice';
 
 function Products() {
+  const data = useProductData();
+  const dispatch = useDispatch();
+
+  const handleAdd = (product) => {
+    dispatch(addItem(product));
+  };
+
   return (
     <div className='products-page'>
       <section className='filter-options'>
@@ -10,7 +20,7 @@ function Products() {
         </div>
 
         <div className='filter-opt'>
-          <span>Category</span>
+          <label>Category</label>
 
           <form className='categ-f'>
             <div>
@@ -31,17 +41,6 @@ function Products() {
                 Women
               </label>
             </div>
-          </form>
-
-          <form className='rating-f'>
-            <label htmlFor='rating-filter'>Ratings</label>
-            <input
-              type='range'
-              name='rating-filter'
-              id='rating-filter'
-              min={0}
-              max={5}
-            />
           </form>
 
           <form action='' className='brand-f'>
@@ -70,7 +69,7 @@ function Products() {
         </div>
       </section>
 
-      <section className='product-section'>
+      <main className='product-section'>
         <div className='header'>
           <span>Products</span>
 
@@ -84,29 +83,40 @@ function Products() {
         </div>
 
         <div className='products'>
-          <div className='product'>
-            <img src={ProductImage} alt='' />
+          {data.map((product) => {
+            if (product.category !== 'Beauty Product') {
+              return (
+                <div key={product._id} className='product'>
+                  <div className='product-img'>
+                    <img src={product.image} alt={product.title} />
+                  </div>
 
-            <div className='product-info'>
-              <span className='ratings'>5.0 ⭐</span>
+                  <div className='product-info'>
+                    <span className='ratings'>{product.rating} ⭐</span>
 
-              <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit.</h3>
-              <p>
-                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa,
-                beatae aliquam dolores cupiditate temporibus, amet sunt dicta
-                delectus autem eum quisquam commodi voluptatibus, unde molestiae
-                mollitia earum dignissimos voluptate praesentium?
-              </p>
-              <div className='pricing'>
-                <span className='price'>₹150</span>
-                <span className='old-price'>₹233</span>
-              </div>
+                    <h3>{product.title}</h3>
+                    <div className='pricing'>
+                      <span className='price'>₹{product.price}</span>
+                      <span className='old-price'>₹{product.oldPrice}</span>
+                      <span className='off-percent'>
+                        (
+                        {Math.round(
+                          100 - (product.price / product.oldPrice) * 100
+                        )}
+                        % off)
+                      </span>
+                    </div>
 
-              <button>Add to Cart</button>
-            </div>
-          </div>
+                    <button onClick={() => handleAdd(product)}>
+                      Add to Cart
+                    </button>
+                  </div>
+                </div>
+              );
+            }
+          })}
         </div>
-      </section>
+      </main>
     </div>
   );
 }

@@ -19,7 +19,7 @@ header .navbar .left-nav .logo-link {
   text-decoration: none;
 }
 header .navbar .left-nav .logo-link .logo {
-  color: #F97300;
+  color: #537EC5;
   font-size: 2rem;
   font-family: "Crimson Text", serif;
   font-weight: 200;
@@ -37,29 +37,29 @@ header .navbar .left-nav .navmenu-container .navmenu {
 header .navbar .left-nav .navmenu-container .navmenu .navitem {
   padding: 0 20px;
   font-size: 1rem;
-  color: #424242;
+  color: #161616;
 }
 header .navbar .left-nav .navmenu-container .navmenu .navitem .link {
   text-decoration: none;
-  color: #424242;
+  color: #161616;
   font-weight: 400;
 }
 header .navbar .left-nav .navmenu-container .navmenu .navitem .link:hover {
-  border-bottom: 2px solid #F97300;
-  color: #F97300;
+  border-bottom: 2px solid #537EC5;
+  color: #537EC5;
   padding-bottom: 3px;
   transition: 0.2s ease;
 }
 header .navbar .left-nav .navmenu-container .navmenu .navitem .active {
   text-decoration: none;
-  color: #F97300;
-  border-bottom: 2px solid #F97300;
+  color: #537EC5;
+  border-bottom: 2px solid #537EC5;
   padding-bottom: 3px;
   transition: 0.2s ease;
 }
 header .navbar .left-nav .navmenu-container .navmenu .navitem .inactive {
   text-decoration: none;
-  color: #424242;
+  color: #161616;
 }
 header .navbar .right-nav {
   display: flex;
@@ -70,23 +70,21 @@ header .navbar .right-nav .profile-control {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #424242;
+  color: #161616;
 }
 header .navbar .right-nav .cart {
   text-decoration: none;
+  position: relative;
+  color: #161616;
 }
 header .navbar .right-nav .cart:hover {
   cursor: pointer;
-  position: relative;
-}
-header .navbar .right-nav .cart:hover .itemAdded {
-  display: block;
+  color: #537EC5;
 }
 header .navbar .right-nav .cart-control {
   display: flex;
   align-items: center;
   gap: 5px;
-  color: #424242;
 }
 header .navbar .right-nav .cart-control div {
   display: flex;
@@ -97,13 +95,12 @@ header .navbar .right-nav .cart-control div {
 header .navbar .right-nav .cart-control div .itemAdded {
   position: absolute;
   left: 2px;
-  background-color: #F97300;
+  background-color: #537EC5;
   border-radius: 10px;
   width: 15px;
   color: #F5F5F5;
   font-size: 0.8rem;
   bottom: 15px;
-  display: none;
 }
 
 /*Search Input Styles*/
@@ -111,7 +108,7 @@ header .navbar .right-nav .cart-control div .itemAdded {
   padding: 10px 20px;
   min-width: 350px;
   max-width: 100%;
-  border: 1px solid #424242;
+  border: 1px solid #161616;
   border-radius: 5px;
   font-size: 1rem;
   background-color: #F5F5F5;
@@ -123,7 +120,7 @@ header .navbar .right-nav .cart-control div .itemAdded {
 /*===== Header Ends =====*/
 /* Footer Styles*/
 .footer {
-  background-color: #424242;
+  background-color: #161616;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;

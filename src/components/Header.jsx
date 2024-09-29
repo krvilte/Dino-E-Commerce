@@ -3,10 +3,13 @@ import Search from './Search';
 import { Link, NavLink } from 'react-router-dom';
 import { FaRegUserCircle } from 'react-icons/fa';
 import { IoCart } from 'react-icons/io5';
+import { useSelector } from 'react-redux';
 
 import '../scss/layout.scss';
 
 function Header() {
+  const items = useSelector((state) => state.cart);
+
   return (
     <>
       <header className='header'>
@@ -21,12 +24,6 @@ function Header() {
                 <li className='navitem'>
                   <NavLink to='/' className='link'>
                     Home
-                  </NavLink>
-                </li>
-
-                <li className='navitem'>
-                  <NavLink to='/brand' className='link'>
-                    Brand
                   </NavLink>
                 </li>
 
@@ -53,7 +50,12 @@ function Header() {
               <div className='cart-control'>
                 <IoCart />
                 <div>
-                  <span className='itemAdded'>2</span>
+                  {items.length > 0 ? (
+                    <span className='itemAdded'>{items.length}</span>
+                  ) : (
+                    <></>
+                  )}
+
                   <span>Cart</span>
                 </div>
               </div>

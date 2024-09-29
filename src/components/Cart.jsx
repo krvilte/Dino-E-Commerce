@@ -1,92 +1,68 @@
 import React from 'react';
 import ProductImg from '../assets/Product.jpg';
+import { useDispatch, useSelector } from 'react-redux';
+import { removeItem } from '../slices/cart/cartSlice';
 
 function Cart() {
+  const items = useSelector((state) => state.cart);
+
+  const dispatch = useDispatch();
+
+  const handleRemove = (productId) => {
+    dispatch(removeItem(productId));
+  };
+
   return (
     <div className='cart-page'>
-      <section className='cart'>
+      <main className='cart'>
         <h2>Cart Items</h2>
-        <div className='item'>
-          <div className='item-card'>
-            <div className='product-img'>
-              <img src={ProductImg} alt='' />
-            </div>
+        {items.length > 0 ? (
+          items.map((item) => {
+            return (
+              <div key={item._id} className='item'>
+                <div className='item-card'>
+                  <div className='product-img'>
+                    <img src={item.image} alt={item.title} />
+                  </div>
 
-            <div className='right--i'>
-              <div className='product-info'>
-                <h3 className='title'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h3>
+                  <div className='right--i'>
+                    <div className='product-info'>
+                      <h3 className='title'>{item.title}</h3>
 
-                <p className='descrption'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Maxime, eos tenetur culpa debitis, fugit nihil, distinctio
-                  reprehenderit corporis excepturi sequi dolorum repellendus
-                  aliquid unde aut sint nostrum dolores laborum natus.
-                </p>
+                      <p className='descrption'>{item.des}</p>
 
-                <div className='pricing'>
-                  <span className='price'>₹400</span>
-                  <span className='old-price'>₹780</span>
+                      <div className='pricing'>
+                        <span className='price'>₹{item.price}</span>
+                        <span className='old-price'>₹{item.oldPrice}</span>
+                      </div>
+                    </div>
+
+                    <div className='list-action'>
+                      <select name='qty' id='qty'>
+                        <option>Qty</option>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                      </select>
+
+                      <span
+                        onClick={() => handleRemove(item._id)}
+                        className='remove-item'
+                      >
+                        Remove
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
-
-              <div className='list-action'>
-                <select name='qty' id='qty'>
-                  <option selected>Qty</option>
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                  <option value='5'>5</option>
-                </select>
-
-                <span className='remove-item'>Remove</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className='item'>
-          <div className='item-card'>
-            <div className='product-img'>
-              <img src={ProductImg} alt='' />
-            </div>
-
-            <div className='right--i'>
-              <div className='product-info'>
-                <h3 className='title'>
-                  Lorem ipsum dolor sit amet consectetur adipisicing.
-                </h3>
-
-                <p className='descrption'>
-                  Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                  Maxime, eos tenetur culpa debitis, fugit nihil, distinctio
-                  reprehenderit corporis excepturi sequi dolorum repellendus
-                  aliquid unde aut sint nostrum dolores laborum natus.
-                </p>
-
-                <div className='pricing'>
-                  <span className='price'>₹400</span>
-                  <span className='old-price'>₹780</span>
-                </div>
-              </div>
-
-              <div className='list-action'>
-                <select name='qty' id='qty'>
-                  <option selected>Qty</option>
-                  <option value='1'>1</option>
-                  <option value='2'>2</option>
-                  <option value='3'>3</option>
-                  <option value='4'>4</option>
-                  <option value='5'>5</option>
-                </select>
-
-                <span className='remove-item'>Remove</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            );
+          })
+        ) : (
+          <div className='emptyCart'>Nothing in the Cart</div>
+        )}
+      </main>
 
       <section className='order-summary'>
         <h2>Order Summary</h2>
